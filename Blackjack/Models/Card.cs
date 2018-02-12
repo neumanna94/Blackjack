@@ -28,20 +28,20 @@ namespace Blackjack.Models
             }
             _type = typeIn;
         }
-        public void CreateDecks(int numberOfDecks)
+        public static void CreateDecks(int numberOfDecks)
         {
-            for(var k = 1; k <= numberofDecks; k ++)
+            for(var k = 1; k <= numberOfDecks; k ++)
             {
                 for(var i = 1; i <= 4; i ++)
                 {
                     for(var j = 1; j <= 13; j ++){
-                        Card newCard = new Card(i, j)
-                        this.PushToList(newCard);
+                        Card newCard = new Card(i, j);
+                        newCard.PushToList();
                     }
                 }
             }
         }
-        public List<Card> GetDeck()
+        public static List<Card> GetDeck()
         {
             return _deck;
         }
@@ -54,6 +54,44 @@ namespace Blackjack.Models
         public void PushToList()
         {
             _deck.Add(this);
+        }
+        public string printCard()
+        {
+            return _type + " of " + _suit;
+        }
+        public static void shuffleDeck()
+        {
+            shuffleTypeOne();
+            randomShuffle();
+        }
+        public static void shuffleTypeOne()
+        {
+            List<Card> halfDeckOne = new List<Card>{};
+            List<Card> halfDeckTwo = new List<Card>{};
+            int splitDeckLength = _deck.Count/2;
+            for(var i = 0; i < splitDeckLength; i ++)
+            {
+                halfDeckOne.Add(_deck[i]);
+                halfDeckTwo.Add(_deck[i]);
+            }
+            Card.ClearDeck();
+            for(var i = 0; i < splitDeckLength; i ++)
+            {
+                _deck.Add(halfDeckOne[i]);
+                _deck.Add(halfDeckTwo[i]);
+            }
+        }
+        public static void randomShuffle()
+        {
+            Random r = new Random();
+            Card currentIndexValue;
+            for(var i = 0; i < _deck.Count; i ++)
+            {
+                int randomPosition = r.Next(0, _deck.Count);
+                currentIndexValue = _deck[i];
+                _deck[i] = _deck[randomPosition];
+                _deck[randomPosition] = currentIndexValue;
+            }
         }
     }
 }
