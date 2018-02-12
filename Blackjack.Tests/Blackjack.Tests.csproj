@@ -10,6 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeapYear\LeapYear.csproj" />
+    <ProjectReference Include="..\Blackjack\Blackjack.csproj" />
   </ItemGroup>
 </Project>

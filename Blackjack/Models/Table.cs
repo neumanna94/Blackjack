@@ -4,8 +4,5 @@ namespace Blackjack.Models
 {
     public class Table
     {
-      private
-
-
     }
 }
