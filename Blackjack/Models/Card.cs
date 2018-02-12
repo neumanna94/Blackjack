@@ -7,6 +7,8 @@ namespace Blackjack.Models
         private string _suit; //Diamond, Heart, Spades, Clubs
         private int _type; //1-13 1(Ace) 11(Jack) 12(Queen) 13(King)
         private static List<Card> _deck = new List<Card>{};
+        // private int count = 0;
+        // private static List<int> _distribution = new List<int> {};
 
         public Card(int suitIn, int typeIn)
         {
@@ -27,6 +29,14 @@ namespace Blackjack.Models
                 Console.WriteLine("Invalid suitIn");
             }
             _type = typeIn;
+        }
+        public string GetSuit()
+        {
+            return _suit;
+        }
+        public int GetNumber()
+        {
+            return _type;
         }
         public static void CreateDecks(int numberOfDecks)
         {
@@ -72,13 +82,13 @@ namespace Blackjack.Models
             for(var i = 0; i < splitDeckLength; i ++)
             {
                 halfDeckOne.Add(_deck[i]);
-                halfDeckTwo.Add(_deck[i]);
+                halfDeckTwo.Add(_deck[i+splitDeckLength]);
             }
             Card.ClearDeck();
             for(var i = 0; i < splitDeckLength; i ++)
             {
-                _deck.Add(halfDeckOne[i]);
                 _deck.Add(halfDeckTwo[i]);
+                _deck.Add(halfDeckOne[i]);
             }
         }
         public static void randomShuffle()
@@ -93,5 +103,28 @@ namespace Blackjack.Models
                 _deck[randomPosition] = currentIndexValue;
             }
         }
+        // public void saveDistribution()
+        // {
+        //     count++;
+        //     for(int i = 0; i < _deck.Count; i ++)
+        //     {
+        //         if(_deck[i] == this)
+        //         {
+        //             _distribution[i] = _distribution[i] + 1;
+        //         }
+        //     }
+        //
+        // }
+        // public static void normalizeDistribution()
+        // {
+        //     for(int i = 0 ; i < _distribution.Count;i ++)
+        //     {
+        //         _distribution[i] = _distribution[i]/count;
+        //     }
+        // }
+        // public static List<int> getDistribution()
+        // {
+        //     return _distribution;
+        // }
     }
 }

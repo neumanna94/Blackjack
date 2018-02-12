@@ -9,6 +9,21 @@ Description:
 This function will add cards to our global Deck variable.
 Example: Blackjack.GenerateDecks(2) => Will generate two decks.
 
+Method: shuffleTypeOne
+Input: void
+Output: void
+Description: Splits the current deck into two. Adds both of them incremenetally starting with second deck.
+
+Method: randomShuffle
+Input: void
+Output: void
+Description: Increments through the entire deck. Replaces the current card with another randomly in the deck.
+
+Method: shuffleDeck
+Input: void
+Output: void
+Description: Calls shuffleTypeOne, and then randomShuffle.
+
 Method: CardSum(Card in, int position);
 Input: Card
 Output: void
