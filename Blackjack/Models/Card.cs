@@ -65,16 +65,16 @@ namespace Blackjack.Models
         {
             _deck.Add(this);
         }
-        public string printCard()
+        public string PrintCard()
         {
             return _type + " of " + _suit;
         }
-        public static void shuffleDeck()
+        public static void ShuffleDeck()
         {
-            shuffleTypeOne();
-            randomShuffle();
+            ShuffleTypeOne();
+            RandomShuffle();
         }
-        public static void shuffleTypeOne()
+        public static void ShuffleTypeOne()
         {
             List<Card> halfDeckOne = new List<Card>{};
             List<Card> halfDeckTwo = new List<Card>{};
@@ -91,7 +91,7 @@ namespace Blackjack.Models
                 _deck.Add(halfDeckOne[i]);
             }
         }
-        public static void randomShuffle()
+        public static void RandomShuffle()
         {
             Random r = new Random();
             Card currentIndexValue;
@@ -103,28 +103,5 @@ namespace Blackjack.Models
                 _deck[randomPosition] = currentIndexValue;
             }
         }
-        // public void saveDistribution()
-        // {
-        //     count++;
-        //     for(int i = 0; i < _deck.Count; i ++)
-        //     {
-        //         if(_deck[i] == this)
-        //         {
-        //             _distribution[i] = _distribution[i] + 1;
-        //         }
-        //     }
-        //
-        // }
-        // public static void normalizeDistribution()
-        // {
-        //     for(int i = 0 ; i < _distribution.Count;i ++)
-        //     {
-        //         _distribution[i] = _distribution[i]/count;
-        //     }
-        // }
-        // public static List<int> getDistribution()
-        // {
-        //     return _distribution;
-        // }
     }
 }

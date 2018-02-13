@@ -5,15 +5,20 @@ namespace Blackjack.Models
     public class Player
     {
         private string _name;
-        private int _score;
+        private int _sum;
         private List<Card> _currentCards = new List<Card>{};
         public Player(string nameIn)
         {
             _name = nameIn;
         }
-        public int GetScore()
+        public string GetName()
         {
-            return _score;
+            return _name;
+        }
+        public int GetSum()
+        {
+            CalculateSum();
+            return _sum;
         }
 
         public List<Card> GetPlayerCards()
@@ -30,35 +35,12 @@ namespace Blackjack.Models
         {
             _currentCards.Add(inputCard);
         }
-        public int GetPlayerSum()
+        public void CalculateSum()
         {
-            int sum = 0;
-            int currentCardValue;
-            for(var i = 0; i < _currentCards.Count; i ++)
+            for(int i = 0; i < _currentCards.Count; i ++)
             {
-                currentCardValue = _currentCards[i].GetNumber();
-                if(currentCardValue == 1)
-                {
-                    sum += 10;
-                } else if(currentCardValue == 11)
-                {
-                    //Jack
-                    sum += 10;
-                }else if(currentCardValue == 12)
-                {
-                    //Queen
-                    sum += 10;
-                } else if(currentCardValue == 13)
-                {
-                    //King
-                    sum += 10;
-                } else
-                {
-                    break;
-                }
-                sum += currentCardValue;
+                _sum += _currentCards[i].GetNumber();
             }
-            return sum;
         }
     }
 }
