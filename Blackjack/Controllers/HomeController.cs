@@ -9,7 +9,39 @@ namespace Blackjack.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
+
             return View();
         }
+        [HttpGet("/clear")]
+        public ActionResult NewGame()
+        {
+
+        }
+        [HttpGet("/HitPlayerOne")]
+        public ActionResult HitPlayerOne()
+        {
+
+        }
+        [HttpGet("/HitPlayerTwo")]
+        public ActionResult HitPlayerTwo()
+        {
+
+        }
+        [HttpGet("/HoldPlayerOne")]
+        public ActionResult HoldPlayerOne()
+        {
+
+        }
+        [HttpGet("/HoldPlayerTwo")]
+        public ActionResult HoldPlayerTwo()
+        {
+
+        }
+        [HttpPost("/Result")]
+        public ActionResult Result()
+        {
+
+        }
+
     }
 }

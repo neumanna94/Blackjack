@@ -58,5 +58,58 @@ namespace Blackjack.Models
         {
             return _currentDeck;
         }
+        public List<Card> GetPlayersCards(int thisPlayer)
+        {
+            return _playersPositions[thisPlayer].GetPlayerCards();
+        }
+        public bool Hit(int thisPlayer)
+        {
+            Card topOfDeck = _currentDeck[_currentDeck.Count-1];
+            _currentDeck.RemoveAt(_currentDeck.Count-1);
+            _playersPositions[thisPlayer].PushToPlayer(topOfDeck);
+            int currentSum = _playersPositions[thisPlayer].GetSum();
+            //Busted
+            if(currentSum > 21){
+                return false;
+            //Didn't bust
+            } else {
+                return true;
+            }
+        }
+        //Can Refactor this one with FindTotal
+        public Player findWinner()
+        {
+            Player currentMinPlayer = _playersPositions[0];
+            Player currentPlayer;
+
+            for(int i = 1 ; i <_playersPositions.Count; i ++)
+            {
+                currentPlayer = _playersPositions[i];
+                if(!(Math.Abs(21-currentMinPlayer.GetSum()) < Math.Abs(21-currentPlayer.GetSum())))
+                {
+                    currentMinPlayer = currentPlayer;
+                } else {
+
+                }
+            }
+            return currentMinPlayer;
+        }
+        public int FindTotal(int thisPlayer)
+        {
+            int sum = _playersPositions[thisPlayer].GetSum();
+            return sum;
+        }
+        public void ClearAllHands()
+        {
+            for(int i = 0; i <_playersPositions.Count; i ++)
+            {
+                _playersPositions[i].ClearPlayerCards();
+            }
+        }
+        public void NewGame()
+        {
+            ClearTable();
+            ClearAllHands();
+        }
     }
 }
