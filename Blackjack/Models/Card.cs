@@ -38,7 +38,7 @@ namespace Blackjack.Models
         {
             return _type;
         }
-        public static void CreateDecks(int numberOfDecks)
+        public static List<Card> CreateDecks(int numberOfDecks)
         {
             for(var k = 1; k <= numberOfDecks; k ++)
             {
@@ -50,6 +50,7 @@ namespace Blackjack.Models
                     }
                 }
             }
+            return _deck;
         }
         public static List<Card> GetDeck()
         {

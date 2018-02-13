@@ -1,0 +1,63 @@
+body {
+    background-color: #272727;
+}
+h3 {
+    color: #272727;
+    margin-bottom: 2%;
+}
+h4, h5, h6 {
+    color: white;
+}
+.jumbotron {
+    background-color: #6B6E70;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
+}
+.jumbotron h1 {
+    text-align: center;
+    color: #272727;
+}
+.col-md-6 {
+    background-color: #6B6E70;
+    text-align: center;
+    height: 100%;
+    padding: 2%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
+}
+.row {
+    margin-left: 2.5%;
+    width: 95%;
+}
+.btn {
+    text-align: center;
+    background-color: #272727;
+    color: white;
+    margin-top: 10%;
+}
+.btn a {
+    color: white;
+    text-decoration: none;
+}
+.btn a:hover {
+    color: #86C232;
+}
+#newGame {
+    text-align: center;
+    margin-left: 39.5%;
+    background-color:#6B6E70;
+    color: white;
+    width: 20%;
+}
+#newGame a {
+    color: white;
+    text-decoration: none;
+}
+#newGame a:hover {
+    color: #86C232;
+}
+.btn:hover {
+
+}
