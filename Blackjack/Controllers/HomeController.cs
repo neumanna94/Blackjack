@@ -9,39 +9,9 @@ namespace Blackjack.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-
-            return View();
+            Table newTable = new Table();
+            newTable.SetupFunction();
+            return View(newTable);
         }
-        [HttpGet("/clear")]
-        public ActionResult NewGame()
-        {
-
-        }
-        [HttpGet("/HitPlayerOne")]
-        public ActionResult HitPlayerOne()
-        {
-
-        }
-        [HttpGet("/HitPlayerTwo")]
-        public ActionResult HitPlayerTwo()
-        {
-
-        }
-        [HttpGet("/HoldPlayerOne")]
-        public ActionResult HoldPlayerOne()
-        {
-
-        }
-        [HttpGet("/HoldPlayerTwo")]
-        public ActionResult HoldPlayerTwo()
-        {
-
-        }
-        [HttpPost("/Result")]
-        public ActionResult Result()
-        {
-
-        }
-
     }
 }

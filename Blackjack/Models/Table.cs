@@ -5,8 +5,8 @@ namespace Blackjack.Models
     public class Table
     {
         private static List<Player> _playersPositions = new List<Player>{};
-        private List<Card> _currentDeck = new List<Card>{};
-        private int _currentPosition; //Position is 0-_playersPosition.Count
+        private static List<Card> _currentDeck = new List<Card>{};
+
         //Generate the Deck
         public void PopulateDeck(int numberOfDecks)
         {
@@ -20,40 +20,28 @@ namespace Blackjack.Models
             return _playersPositions;
         }
 
-        public void ClearTable()
+        public static void ClearTable()
         {
             _playersPositions.Clear();
 
         }
+        public static void ClearCurrentDeck()
+        {
+            _currentDeck.Clear();
+        }
+        public void ClearAllHands()
+        {
+            for(int i = 0; i <_playersPositions.Count; i ++)
+            {
+                _playersPositions[i].ClearPlayerCards();
+            }
+        }
         //Put a player in the next position.
-        public void PushToTable(Player currentPlayer)
+        public static void PushToTable(Player currentPlayer)
         {
             _playersPositions.Add(currentPlayer);
         }
-        public void NextTurn()
-        {
-            _currentPosition ++;
-              // Deal();
-              // CheckHands();
-              // _currentPosition = 0;
-        }
-        public void Deal()
-        {
-            _playersPositions[_currentPosition].PushToPlayer(_currentDeck[_currentDeck.Count - 1]);
-            _currentDeck.RemoveAt(_currentDeck.Count - 1);
-        }
-        public string CheckForBust()
-        {
-            for(var i = 0; i < _playersPositions.Count; i ++)
-            {
-                Player currentPlayer = _playersPositions[i];
-                if(currentPlayer.GetSum() > 21)
-                {
-                    return "bust";
-                }
-            }
-            return null;
-        }
+
         public List<Card> GetDeck()
         {
             return _currentDeck;
@@ -61,20 +49,6 @@ namespace Blackjack.Models
         public List<Card> GetPlayersCards(int thisPlayer)
         {
             return _playersPositions[thisPlayer].GetPlayerCards();
-        }
-        public bool Hit(int thisPlayer)
-        {
-            Card topOfDeck = _currentDeck[_currentDeck.Count-1];
-            _currentDeck.RemoveAt(_currentDeck.Count-1);
-            _playersPositions[thisPlayer].PushToPlayer(topOfDeck);
-            int currentSum = _playersPositions[thisPlayer].GetSum();
-            //Busted
-            if(currentSum > 21){
-                return false;
-            //Didn't bust
-            } else {
-                return true;
-            }
         }
         //Can Refactor this one with FindTotal
         public Player findWinner()
@@ -99,17 +73,40 @@ namespace Blackjack.Models
             int sum = _playersPositions[thisPlayer].GetSum();
             return sum;
         }
-        public void ClearAllHands()
+        public void Hold(int holdThisPlayer)
         {
-            for(int i = 0; i <_playersPositions.Count; i ++)
-            {
-                _playersPositions[i].ClearPlayerCards();
+            _playersPositions[holdThisPlayer].SetHold(true);
+            if(_playersPositions[0].GetHold() && _playersPositions[1].GetHold()){
+                findWinner();
+            } else {
+            }
+        }
+        public bool Hit(int thisPlayer)
+        {
+            Card topOfDeck = _currentDeck[_currentDeck.Count-1];
+            _currentDeck.RemoveAt(_currentDeck.Count-1);
+            _playersPositions[thisPlayer].PushToPlayer(topOfDeck);
+            int currentSum = _playersPositions[thisPlayer].GetSum();
+            //Busted
+            if(currentSum > 21){
+                return false;
+            //Didn't bust
+            } else {
+                return true;
             }
         }
         public void NewGame()
         {
             ClearTable();
             ClearAllHands();
+        }
+        public void SetupFunction()
+        {
+            PopulateDeck(2);
+            Player one = new Player("One");
+            Player two = new Player("Two");
+            PushToTable(one);
+            PushToTable(two);
         }
     }
 }

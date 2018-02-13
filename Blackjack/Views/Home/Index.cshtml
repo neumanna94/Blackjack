@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Simple Blackjack</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <script src="~/js/jquery-3.2.1.min.js"></script>
     <link rel='stylesheet' href="~/css/styles.css">
   </head>
 <body>
@@ -14,19 +15,55 @@
         <div class = "row">
             <div class = "col-md-6">
             <h3>Player 1</h3>
-            <h4>Current Cards: </h4>
-            <h4>Total: </h4>
-            <button type="button" class="btn"><a href='/'>Hit</a></button>
-            <button type="button" class="btn"><a href='/'>Hold</a></button>
+            <h4 id="Player1CC">Current Cards: </h4>
+            <h4 id="Player1Total">Total: </h4>
+            <button type="button" class="btn" id="playerOneHit">Hit</button>
+            <button type="button" class="btn" id="playerOneHold">Hold</button>
             </div>
             <div class = "col-md-6">
             <h3>Dealer</h3>
-            <h4>Current Cards: </h4>
-            <h4>Total: </h4>
-            <button type="button" class="btn"><a href='/'>Hit</a></button>
-            <button type="button" class="btn"><a href='/'>Hold</a></button>
+            <h4 id="Player2CC">Current Cards: </h4>
+            <h4 id="Player2Total">Total: </h4>
+            <button type="button" class="btn" id="playerTwoHit">Hit</button>
+            <button type="button" class="btn" id="playerTwoHold">Hold</button>
             </div>
             <button type="button" class="button" id="newGame"><a href='/'>New Game</a></button>
         </div>
     </div>
 </body>
+<script src="text/javascript">
+function refresh(){
+    $("Player1CC").append(@Model.GetPlayersCards(0));
+    $("Player2CC").append(@Model.GetPlayersCards(1));
+    $("Player1Total").append(@Model.FindTotal(0));
+    $("Player2Total").append(@Model.FindTotal(1));
+
+}
+$(document).ready(function(){
+    $("#playerOneHit").click(function(){
+        console.log("Hit One");
+        @Model.Hit(0);
+        refresh();
+    });
+    $("#playerTwoHit").click(function(){
+        console.log("Hit Two");
+        @Model.Hit(1);
+        refresh();
+    });
+    $("#PlayerOneHold").click(function(){
+        console.log("Hold One");
+        @Model.Hold(0);
+        refresh();
+    });
+    $("#playerTwoHold").click(function(){
+        console.log("Hold Two");
+        @Model.Hold(1);
+        refresh();
+    });
+    $("#newGame").click(function(){
+        console.log("new Game");
+        @Model.newGame();
+        refresh();
+    });
+});
+</script>

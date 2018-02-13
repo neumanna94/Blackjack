@@ -6,6 +6,7 @@ namespace Blackjack.Models
     {
         private string _name;
         private int _sum;
+        private bool _hold;
         private List<Card> _currentCards = new List<Card>{};
         public Player(string nameIn)
         {
@@ -19,6 +20,14 @@ namespace Blackjack.Models
         {
             CalculateSum();
             return _sum;
+        }
+        public void SetHold(bool settingTurn)
+        {
+            _hold = settingTurn;
+        }
+        public bool GetHold()
+        {
+            return _hold;
         }
 
         public List<Card> GetPlayerCards()
