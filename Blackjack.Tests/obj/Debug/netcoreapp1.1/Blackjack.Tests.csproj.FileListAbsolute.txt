@@ -11,3 +11,16 @@
 /Users/Guest/Desktop/Blackjack.Solution/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.pdb
 /Users/Guest/Desktop/Blackjack.Solution/Blackjack.Tests/obj/Debug/netcoreapp1.1/Blackjack.Tests.dll
 /Users/Guest/Desktop/Blackjack.Solution/Blackjack.Tests/obj/Debug/netcoreapp1.1/Blackjack.Tests.pdb
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.Tests.deps.json
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.Tests.runtimeconfig.json
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.Tests.runtimeconfig.dev.json
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/obj/Debug/netcoreapp1.1/Blackjack.Tests.AssemblyInfo.cs
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/obj/Debug/netcoreapp1.1/Blackjack.Tests.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/obj/Debug/netcoreapp1.1/Blackjack.Tests.pdb
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.Tests.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.Tests.pdb
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.dll
+/Users/Guest/Desktop/Blackjack/Blackjack.Tests/bin/Debug/netcoreapp1.1/Blackjack.pdb

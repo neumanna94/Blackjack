@@ -28,20 +28,20 @@ namespace Blackjack.Tests
         //     for(var i = 0; i < 52*numberOfDecks; i ++){
         //         Console.WriteLine(newDeck[i].printCard());
         //     }
-        // }
-            [TestMethod]
-            public void TestPlayer()
+            // }
+        [TestMethod]
+        public void TestShuffle()
+        {
+            Table newTable = new Table();
+            newTable.PopulateDeck(1);
+            List<Card> newDeck = newTable.GetDeck();
+            for(int i = 0; i < newDeck.Count; i ++)
             {
-                Card tester = new Card(1,10);
-                Player one = new Player("Alex");
-                for(int i = 0; i < 13; i ++)
-                {
-                    tester = new Card(1, i);
-                    one.PushToPlayer(tester);
-                }
-                Console.WriteLine(one.GetSum());
-
+                Console.WriteLine(newDeck[i].PrintCard());
             }
+
+        }
+
         // [TestMethod, TestCategory("PlayerTest")]
         // public void TestShuffle()
         // {
